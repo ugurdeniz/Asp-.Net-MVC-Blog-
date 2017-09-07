@@ -26,7 +26,7 @@ namespace Blog.Models
         [StringLength(500)]
         public string Foto { get; set; }
 
-        public DateTime? Tarih { get; set; }
+        public DateTime Tarih { get; set; }
 
         public int? KategoriId { get; set; }
 
