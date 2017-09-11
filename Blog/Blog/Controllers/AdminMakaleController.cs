@@ -26,19 +26,23 @@ namespace Blog.Controllers
         // GET: AdminMakale/Create
         public ActionResult Create()
         {
-            ViewBag.KategoriId = new SelectList(db.Kategoris, "KategoriId", "KategoriAdı");
-            ViewBag.Tarih = DateTime.Now.Date;
-            return View(); 
+            /*ViewBag.KategoriId = new SelectList(db.Kategoris, "KategoriId", "KategoriAdı");*/
+
+           
+            return View();
+            ViewBag.KategoriId = db.Kategoris.Select(x => new SelectListItem { Text = x.KategoriAdı, Value = x.KategoriId.ToString() }).ToList(); 
             
         }
 
         // POST: AdminMakale/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Makale makale, string etiketler, HttpPostedFileBase Foto)
         {
             try
             {
-                // TODO: Add insert logic here
+                db.Makales.Add(makale);
+                db.SaveChanges();
+
 
                 return RedirectToAction("Index");
             }

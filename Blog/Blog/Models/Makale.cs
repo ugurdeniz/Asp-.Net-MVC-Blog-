@@ -28,13 +28,13 @@ namespace Blog.Models
 
         public DateTime Tarih { get; set; }
 
-        public int? KategoriId { get; set; }
+        public int KategoriId { get; set; }
 
         public int? UyeId { get; set; }
 
         public int? Okunma { get; set; }
 
-        public virtual Kategori Kategori { get; set; }
+        public virtual Kategori Kategori{ get; set; }
 
         public virtual Uye Uye { get; set; }
 
@@ -43,5 +43,6 @@ namespace Blog.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Etiket> Etikets { get; set; }
+     
     }
 }
